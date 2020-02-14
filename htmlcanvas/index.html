@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <div class="options">
+      <div class="option">
+        <label for="line">Line width:</label>
+        <input
+          id="line"
+          max="100"
+          min="10"
+          name="line"
+          type="range"
+          value="10"
+        />
+        <span class="value"></span>
+      </div>
+      <div class="option">
+        <label for="color">Color:</label>
+        <input id="color" name="color" type="color" value="#000" />
+        <span class="value"></span>
+      </div>
+      <div class="option">
+        <label for="hue">Enable hue:</label>
+        <input id="hue" name="hue" type="checkbox" value="#000" />
+      </div>
+    </div>
+    <canvas id="draw" width="800" height="800"></canvas>
+
+    <script>
+      const line = document.querySelectorAll(".options #line");
+      const color = document.querySelectorAll(".options #color");
+      const check = document.querySelectorAll(".options #hue");
+      const inputs = document.querySelectorAll(".options input");
+
+      const canvas = document.querySelector("#draw");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      ctx.strokeStyle = "#000";
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+
+      let hue = 0;
+
+      let direction = true;
+
+      //   ctx.globalCompositeOperation = "multiply";
+
+      function draw(e) {
+        if (!isDrawing) return;
+        // console.log(e);
+        // ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+
+        if (hueValid) {
+          ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+          hue++;
+          if (hue >= 360) {
+            hue = 0;
+          }
+          if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+            direction = !direction;
+          }
+          if (direction) {
+            ctx.lineWidth++;
+          } else {
+            ctx.lineWidth--;
+          }
+        }
+      }
+
+      function ctxUpdate() {
+        if (this.name === "line") {
+          ctx.lineWidth = this.value;
+          this.nextElementSibling.textContent = this.value;
+        } else if (this.name === "color") {
+          ctx.strokeStyle = this.value;
+          this.nextElementSibling.textContent = this.value;
+        } else {
+          if (this.checked) {
+            return (hueValid = true);
+          } else {
+            return (hueValid = false);
+          }
+        }
+      }
+
+      canvas.addEventListener("mousedown", e => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
+
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mouseup", () => (isDrawing = false));
+      canvas.addEventListener("mouseout", () => (isDrawing = false));
+
+      inputs.forEach(input => input.addEventListener("change", ctxUpdate));
+      inputs.forEach(input => input.addEventListener("mousemove", ctxUpdate));
+    </script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+      .options {
+        display: flex;
+        align-items: center;
+        flex-flow: wrap;
+        padding-top: 22px;
+      }
+      .option {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .option label {
+        margin-right: 20px;
+      }
+      span.value {
+        margin-left: 10px;
+      }
+    </style>
+  </body>
+</html>
