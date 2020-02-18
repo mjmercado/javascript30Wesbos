@@ -29,14 +29,7 @@ var slider = new Swiper(".lessons", {
       } else {
         var r = (i / t) * 100;
       }
-      console.log(i);
       progressChange(r);
-    },
-    reachEnd: function() {
-      console.log("End");
-    },
-    transitionEnd: function() {
-      console.log("Transition end");
     }
   }
 });
