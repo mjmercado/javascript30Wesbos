@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/header.css" />
   </head>
   <body>
     <style>
@@ -49,52 +50,6 @@
         font-size: 20px;
         font-weight: 200;
         border-left: 1px solid #d1e2ff;
-      }
-      header {
-        position: fixed;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 5%;
-        cursor: pointer;
-      }
-
-      header .act--back {
-        position: relative;
-      }
-
-      header .act--back:hover .act--link {
-        left: -60px;
-        transition: 1s;
-      }
-
-      header .act--back:hover .act--link::after {
-        transition: 1s;
-        transform: rotate(180deg);
-        border-left: 10px solid #dd31ff;
-      }
-
-      header .act--back .act--link {
-        text-decoration: none;
-        color: inherit;
-        position: absolute;
-        left: -194px;
-        transition: 1s;
-        width: 150px;
-        font-size: 16px;
-      }
-
-      header .act--back .act--link::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 0;
-        height: 0;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-left: 10px solid #000000;
-        clear: both;
-        transition: 1s;
       }
     </style>
     <header>

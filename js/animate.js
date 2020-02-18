@@ -15,8 +15,13 @@ var slider = new Swiper(".lessons", {
   speed: 500,
   on: {
     init: function() {
-      console.log("swiper initialized");
       progressBar.style.flexBasis = `${onLoadVal}%`;
+    },
+    slideChange: function() {
+      const i = this.snapIndex + 1;
+      const t = slides.length;
+      const r = (i / t) * 100;
+      progressChange(r);
     }
   }
 });
@@ -24,10 +29,3 @@ var slider = new Swiper(".lessons", {
 function progressChange(percent) {
   progressBar.style.flexBasis = `${percent}%`;
 }
-
-slider.on("slideChange", function() {
-  const i = this.snapIndex + 1;
-  const t = slides.length;
-  const r = (i / t) * 100;
-  progressChange(r);
-});
