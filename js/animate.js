@@ -23,11 +23,11 @@ var slider = new Swiper(".lessons", {
       const t = slides.length;
 
       if (i > t) {
-        let r = (1 / t) * 100;
+        var r = (1 / t) * 100;
       } else if (i === 0) {
-        let r = (t / t) * 100;
+        var r = (t / t) * 100;
       } else {
-        let r = (i / t) * 100;
+        var r = (i / t) * 100;
       }
       console.log(i);
       progressChange(r);
