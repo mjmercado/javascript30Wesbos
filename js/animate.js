@@ -6,6 +6,7 @@ const onLoadVal = (1 / slides.length) * 100;
 var slider = new Swiper(".lessons", {
   effect: "cube",
   grabCursor: true,
+  loop: true,
   cubeEffect: {
     shadow: true,
     slideShadows: true,
@@ -18,10 +19,24 @@ var slider = new Swiper(".lessons", {
       progressBar.style.flexBasis = `${onLoadVal}%`;
     },
     slideChange: function() {
-      const i = this.snapIndex + 1;
+      const i = this.snapIndex;
       const t = slides.length;
-      const r = (i / t) * 100;
+
+      if (i > t) {
+        let r = (1 / t) * 100;
+      } else if (i === 0) {
+        let r = (t / t) * 100;
+      } else {
+        let r = (i / t) * 100;
+      }
+      console.log(i);
       progressChange(r);
+    },
+    reachEnd: function() {
+      console.log("End");
+    },
+    transitionEnd: function() {
+      console.log("Transition end");
     }
   }
 });
