@@ -5,111 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Javascript30 by: Wesbos</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      .main {
-        max-width: 95%;
-        margin: 0 auto;
-      }
-      .lesson {
-        margin-bottom: 10px;
-      }
-      .lesson a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .lesson a:hover {
-        color: red;
-      }
-      .lesson a:focus {
-        outline: none;
-      }
-      /* cursor {
-        position: fixed;
-        width: 100px;
-        height: 100px;
-        border: 2px solid #000;
-        z-index: 99999999;
-        border-radius: 50%;
-      } */
-    </style>
+    <link rel="stylesheet" href="stylesheet/slider.css" />
+    <link rel="stylesheet" href="stylesheet/style.css" />
   </head>
   <body>
-    <cursor></cursor>
     <main class="main">
       <section class="page-title">
         <h1>Javascript30 by: Wesbos</h1>
       </section>
-      <ol class="lessons">
-        <li class="lesson">
-          <a href="wesbosdrumkit/index.html" class="lesson-link">Drum kit</a>
-        </li>
-        <li class="lesson">
-          <a href="cssjsclock/index.html" class="lesson-link">CSS + JS Clock</a>
-        </li>
-        <li class="lesson">
-          <a href="cssvariables/index.html" class="lesson-link"
-            >Scoped CSS Variables and JS</a
-          >
-        </li>
-        <li class="lesson">
-          <a href="arraycardiopractice1/index.html" class="lesson-link"
-            >Array Cardio 💪</a
-          >
-        </li>
-        <li class="lesson">
-          <a href="flexpanelgallery/index.html" class="lesson-link"
-            >Flex Panels 💪</a
-          >
-        </li>
-        <li class="lesson">
-          <a href="typeahead/index.html" class="lesson-link">Type Ahead 👀</a>
-        </li>
-        <li class="lesson">
-          <a href="arraycardiopractice2/index.html" class="lesson-link"
-            >Array Cardio 💪💪</a
-          >
-        </li>
-        <li class="lesson">
-          <a href="htmlcanvas/index.html" class="lesson-link">HTML5 Canvas</a>
-        </li>
-        <li class="lesson">
-          <a href="holdshiftandcheckbox/index.html" class="lesson-link"
-            >JS Checkbox challenge</a
-          >
-        </li>
-        <li class="lesson">
-          <a href="customvideoplayer/index.html" class="lesson-link"
-            >Custom Video Player</a
-          >
-        </li>
-        <li class="lesson">
-          <a href="keysequencedetection/index.html" class="lesson-link"
-            >Key Detection</a
-          >
-        </li>
-      </ol>
+      <div class="lessons swiper-container">
+        <div class="lessons-container swiper-wrapper">
+          <div class="lesson swiper-slide">
+            <a href="wesbosdrumkit/index.html" class="lesson-link">Drum kit</a>
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="cssjsclock/index.html" class="lesson-link"
+              >CSS + JS Clock</a
+            >
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="cssvariables/index.html" class="lesson-link"
+              >Scoped CSS Variables and JS</a
+            >
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="arraycardiopractice1/index.html" class="lesson-link"
+              >Array Cardio 💪</a
+            >
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="flexpanelgallery/index.html" class="lesson-link"
+              >Flex Panels 💪</a
+            >
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="typeahead/index.html" class="lesson-link">Type Ahead 👀</a>
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="arraycardiopractice2/index.html" class="lesson-link"
+              >Array Cardio 💪💪</a
+            >
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="htmlcanvas/index.html" class="lesson-link">HTML5 Canvas</a>
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="holdshiftandcheckbox/index.html" class="lesson-link"
+              >JS Checkbox challenge</a
+            >
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="customvideoplayer/index.html" class="lesson-link"
+              >Custom Video Player</a
+            >
+          </div>
+          <div class="lesson swiper-slide">
+            <a href="keysequencedetection/index.html" class="lesson-link"
+              >Key Detection</a
+            >
+          </div>
+        </div>
+        <div class="custom-pagination">
+          <div class="pagination"></div>
+        </div>
+      </div>
     </main>
-    <script>
-      //   const cursor = document.querySelector("cursor");
-
-      //   function cursorMove(e) {
-      //     const halfWidth = cursor.offsetWidth * 0.5;
-      //     const halfHeight = cursor.offsetHeight * 0.5;
-      //     const posX = e.clientX;
-      //     const posY = e.clientY;
-
-      //     console.log(e);
-
-      //     cursor.style.transform = `translate(${posX - halfWidth}px, ${posY -
-      //       halfHeight}px)`;
-      //   }
-
-      //   window.addEventListener("mousemove", cursorMove);
-      //
-    </script>
+    <script src="/js/slider.min.js"></script>
+    <script src="/js/animate.js"></script>
   </body>
 </html>
