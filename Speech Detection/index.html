@@ -52,9 +52,9 @@
           words.appendChild(p);
         }
         if (transcript.includes("open youtube")) {
-          var key = "youtube";
+          window.open("https://www.youtube.com/", "_blank");
         } else if (transcript.includes("open facebook")) {
-          var key = "facebook";
+          window.open("https://www.facebook.com/", "_blank");
         }
         newTab(key);
 
